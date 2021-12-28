@@ -180,6 +180,7 @@ public class ProductInfoFrame extends JFrame{
 				if (supplierIDs.get(i) == ID_supllierSelected) break;
 			}
 			comboBox.setSelectedItem(comboBox.getItemAt(i));
+			supplier_name = comboBox.getSelectedItem().toString();
 		} else {
 			comboBox.setSelectedItem(comboBox.getItemAt(0));
 			supplier_name = comboBox.getItemAt(0);
