@@ -109,7 +109,7 @@ public class ConstructionPane extends JPanel{
 		
 		cols = new Vector<>();
         cols.add("ID");
-		cols.add("Tên khách");
+		cols.add("Tên dự án");
 		cols.add("SĐT");
 		cols.add("Địa chỉ");
 		cols.add("Tổng tiền");
