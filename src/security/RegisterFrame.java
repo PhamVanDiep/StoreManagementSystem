@@ -18,6 +18,7 @@ import javax.swing.SwingConstants;
 import database.Execute;
 import database.Query;
 import image_icon.CreateImageIcon;
+import main.Controller;
 import main.View;
 
 import javax.swing.JTextField;
@@ -52,6 +53,7 @@ public class RegisterFrame extends JFrame {
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
 		setTitle("Đăng ký");
+		setResizable(false);
 		setVisible(true);
 		
 		isHide0 = true;
@@ -194,6 +196,10 @@ public class RegisterFrame extends JFrame {
 								+ "'" + phone_numberTf.getText() + "'," + "'" + addressTf.getText() + "'," 
 								+ "'" + typeTf.getText() + "'"));
 						Execute.closeConnect();
+						Controller.store_name = nameTf.getText();
+						Controller.phone_number = phone_numberTf.getText();
+						Controller.address = addressTf.getText();
+						Controller.type = typeTf.getText();
 					} catch (SQLException e1) {
 						e1.printStackTrace();
 					}

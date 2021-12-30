@@ -13,6 +13,7 @@ import java.awt.Color;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 
+import database.Connect;
 import database.Execute;
 import database.Query;
 import security.LoginFrame;
@@ -36,21 +37,25 @@ public class Controller {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		try {
-			ResultSet resultSet = Execute.executeQuery(Query.getSelectAll("admin"));
-			if (resultSet.next()) {
-				store_name = resultSet.getString("store_name");
-				phone_number = resultSet.getString("phone_number");
-				address = resultSet.getString("address");
-				type = resultSet.getString("type");
-				
-				new LoginFrame(resultSet.getString("email"), resultSet.getString("password"));
-			}else {
-				new RegisterFrame();
+		
+		Connect connect = new Connect();
+		if (connect.getConnected()) {
+			try {
+				ResultSet resultSet = Execute.executeQuery(Query.getSelectAll("admin"));
+				if (resultSet.next()) {
+					store_name = resultSet.getString("store_name");
+					phone_number = resultSet.getString("phone_number");
+					address = resultSet.getString("address");
+					type = resultSet.getString("type");
+					
+					new LoginFrame(resultSet.getString("email"), resultSet.getString("password"));
+				}else {
+					new RegisterFrame();
+				}
+				Execute.closeConnect();
+			} catch (SQLException e) {
+				e.printStackTrace();
 			}
-			Execute.closeConnect();
-		} catch (SQLException e) {
-			e.printStackTrace();
 		}
 	}
 	

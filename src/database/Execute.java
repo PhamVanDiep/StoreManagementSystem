@@ -13,7 +13,7 @@ public class Execute {
 	private static Statement statement;
 	
 	public static ResultSet executeQuery(String query) throws SQLException {
-		conn = (Connection) DriverManager.getConnection(Connect.DB_URL, Connect.USER_NAME, Connect.PASSWORD);
+		conn = (Connection) DriverManager.getConnection(Connect.DB_URL + Connect.DB_NAME, Connect.USER_NAME, Connect.PASSWORD);
 		statement = conn.createStatement();
 		result = statement.executeQuery(query);	
 		
@@ -22,19 +22,19 @@ public class Execute {
 	}
 	
 	public static void addQuery(String query) throws SQLException {
-		conn = (Connection) DriverManager.getConnection(Connect.DB_URL, Connect.USER_NAME, Connect.PASSWORD);
+		conn = (Connection) DriverManager.getConnection(Connect.DB_URL + Connect.DB_NAME, Connect.USER_NAME, Connect.PASSWORD);
 		statement = conn.createStatement();
 		statement.executeUpdate(query);
 	}
 	
 	public static void updateQuery(String query) throws SQLException {
-		conn = (Connection) DriverManager.getConnection(Connect.DB_URL, Connect.USER_NAME, Connect.PASSWORD);
+		conn = (Connection) DriverManager.getConnection(Connect.DB_URL + Connect.DB_NAME, Connect.USER_NAME, Connect.PASSWORD);
 		statement = conn.createStatement();
 		statement.executeUpdate(query);
 	}
 	
 	public static void delQuery(String query) throws SQLException {
-		conn = (Connection) DriverManager.getConnection(Connect.DB_URL, Connect.USER_NAME, Connect.PASSWORD);
+		conn = (Connection) DriverManager.getConnection(Connect.DB_URL + Connect.DB_NAME, Connect.USER_NAME, Connect.PASSWORD);
 		statement = conn.createStatement();
 		statement.executeUpdate(query);
 	}

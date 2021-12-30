@@ -41,6 +41,7 @@ public class LoginFrame extends JFrame {
 
 		setIconImage(CreateImageIcon.createImageIcon("/res/cubes.png").getImage());
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setResizable(false);
 		setBounds((View.MAX_WIDTH - 450)/2, (View.MAX_HEIGHT - 320)/2 , 450, 320);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.WHITE);

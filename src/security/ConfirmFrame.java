@@ -50,6 +50,7 @@ public class ConfirmFrame extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		setTitle("Đổi mật khẩu");
+		setResizable(false);
 		setVisible(true);
 		
 		this.email = email;
