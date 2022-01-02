@@ -32,7 +32,7 @@ public class SendEmail {
 	         MimeMessage message = new MimeMessage(session);
 	         message.setFrom(new InternetAddress(FromEmail));
 	         message.addRecipient(Message.RecipientType.TO, new InternetAddress(destination));
-	         message.setSubject(Subject);
+	         message.setSubject(Subject, "UTF-8");
 	         message.setText(content);
 	         Transport.send(message);
 	     }catch(Exception e){

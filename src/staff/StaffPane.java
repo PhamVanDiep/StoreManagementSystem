@@ -114,8 +114,11 @@ public class StaffPane extends JPanel {
 		table.getColumnModel().getColumn(5).setPreferredWidth(80);
 		table.getColumnModel().getColumn(6).setPreferredWidth(120);
 		table.getColumnModel().getColumn(7).setPreferredWidth(120);
+		table.getColumnModel().getColumn(7).setMaxWidth(80);
 		table.getColumnModel().getColumn(8).setPreferredWidth(80);
+		table.getColumnModel().getColumn(8).setMaxWidth(80);
 		table.getColumnModel().getColumn(9).setPreferredWidth(80);
+		table.getColumnModel().getColumn(9).setMaxWidth(80);
         table.getColumn("").setCellRenderer(detailButtonRenderer);
 		table.getColumn("").setCellEditor(detailButtonEditor);
         table.getColumn(" ").setCellRenderer(editButtonRenderer);

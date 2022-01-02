@@ -181,11 +181,6 @@ public class ProductInfoFrame extends JFrame{
 			}
 			comboBox.setSelectedItem(comboBox.getItemAt(i));
 			supplier_name = comboBox.getSelectedItem().toString();
-		} else {
-			comboBox.setSelectedItem(comboBox.getItemAt(0));
-			supplier_name = comboBox.getItemAt(0);
-			this.ID_supllierSelected = supplierIDs.get(0);
-			setPhoneNumber();
 		}
 		
 		JLabel lblNewLabel_8 = new JLabel("NCC:");

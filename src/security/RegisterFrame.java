@@ -169,12 +169,12 @@ public class RegisterFrame extends JFrame {
 		panel_2.add(registerBtn);
 		
 		showBtn0 = new JButton("");
-		showBtn0.setIcon(CreateImageIcon.createImageIcon("/res/show.png"));
+		showBtn0.setIcon(CreateImageIcon.createImageIcon("/res/hide.png"));
 		showBtn0.setBounds(295, 270, 25, 25);
 		panel_2.add(showBtn0);
 		
 		showBtn1 = new JButton("");
-		showBtn1.setIcon(CreateImageIcon.createImageIcon("/res/show.png"));
+		showBtn1.setIcon(CreateImageIcon.createImageIcon("/res/hide.png"));
 		showBtn1.setBounds(295, 310, 25, 25);
 		panel_2.add(showBtn1);
 		
