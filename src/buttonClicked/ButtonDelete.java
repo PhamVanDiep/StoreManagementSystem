@@ -47,36 +47,40 @@ public class ButtonDelete extends DefaultCellEditor{
 		button = new JButton();
 		this.object = object;
 
+		
 		button.addActionListener(new ActionListener() {
 			
 			public void actionPerformed(ActionEvent e) {
-				n = table.getSelectedRow();
-				tableModel = table.getModel();
-				
-				ButtonDelete.this.table = table;
-				ButtonDelete.this.defaultTableModel = defaultTableModel;
-				ButtonDelete.this.infos = infos;
-				
-				if (object instanceof StaffPane) {
-					catchDelOfStaffTable();
-				}else if (object instanceof SupplierPane) {
-					catchDelOfSupplierTable();
-				}else if (object instanceof DetailStaffPane) {
-					catchDelOfStaffHourTable();
-				}else if (object instanceof ProductPane) {
-					catchDelOfImportProductTable();
-				}else if (object instanceof DailyPaymentPane) {
-					catchDelOfDailyPaymentTable();
-				}else if (object instanceof WarrantyPane) {
-					catchDelOfWarrantyTable();
-				}else if (object instanceof DebtPane) {
-					catchDelOfDebtTable();
-				}else if (object instanceof DetailDebtPane) {
-					catchDelOfDetailDebtTable();
-				}else if (object instanceof DetailConstructionPane) {
-					catchDelOfDetailConstructionTable();
-				}else if (object instanceof ConstructionPane) {
-					catchDelOfConstructionTable();
+				int selectOption = JOptionPane.showConfirmDialog(null, "Bạn có thực sự muốn xóa?", null, JOptionPane.YES_NO_OPTION);
+				if (selectOption == JOptionPane.YES_OPTION) {
+					n = table.getSelectedRow();
+					tableModel = table.getModel();
+					
+					ButtonDelete.this.table = table;
+					ButtonDelete.this.defaultTableModel = defaultTableModel;
+					ButtonDelete.this.infos = infos;
+					
+					if (object instanceof StaffPane) {
+						catchDelOfStaffTable();
+					}else if (object instanceof SupplierPane) {
+						catchDelOfSupplierTable();
+					}else if (object instanceof DetailStaffPane) {
+						catchDelOfStaffHourTable();
+					}else if (object instanceof ProductPane) {
+						catchDelOfImportProductTable();
+					}else if (object instanceof DailyPaymentPane) {
+						catchDelOfDailyPaymentTable();
+					}else if (object instanceof WarrantyPane) {
+						catchDelOfWarrantyTable();
+					}else if (object instanceof DebtPane) {
+						catchDelOfDebtTable();
+					}else if (object instanceof DetailDebtPane) {
+						catchDelOfDetailDebtTable();
+					}else if (object instanceof DetailConstructionPane) {
+						catchDelOfDetailConstructionTable();
+					}else if (object instanceof ConstructionPane) {
+						catchDelOfConstructionTable();
+					}
 				}
 			}
 		});
@@ -253,7 +257,7 @@ public class ButtonDelete extends DefaultCellEditor{
 
 	public Component getTableCellEditorComponent(JTable table, Object value, boolean isSelected, int row, int column) {
 		button.setFont(new Font("Times New Romans", 1, 20));
-		button.setText("xóa");
+		button.setText("Xóa");
 		button.setBackground(new Color(231, 33, 10));
 		button.setFocusPainted(false);
 		return button;

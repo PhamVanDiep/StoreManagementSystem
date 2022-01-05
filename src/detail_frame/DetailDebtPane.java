@@ -6,6 +6,7 @@ import java.awt.Dimension;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.table.DefaultTableModel;
@@ -377,20 +378,23 @@ public class DetailDebtPane extends JPanel {
 		clearBtn.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				try {
-					Execute.delQuery(Query.getDelQuery("debt_bill", "debt_id", customerID));
-					Execute.closeConnect();
-					int j = table.getModel().getRowCount();
-                    for (int i = j-1; i >= 0; i--) {
-                        defaultTableModel.removeRow(i);
-                    }
-                    setTotalPrice(0);
-                    setDebtLb(Integer.toString(getTotalPrice() - getPaid()));
-                    
-                    defaultDebtTableModel.setValueAt(0, n, 4);
-                    defaultDebtTableModel.setValueAt(debtLb.getText(), n, 6);
-				} catch (SQLException e1) {
-					e1.printStackTrace();
+				int selectOption = JOptionPane.showConfirmDialog(null, "Bạn có thực sự muốn xóa tất cả?", null, JOptionPane.YES_NO_OPTION);
+				if (selectOption == JOptionPane.YES_OPTION) {
+					try {
+						Execute.delQuery(Query.getDelQuery("debt_bill", "debt_id", customerID));
+						Execute.closeConnect();
+						int j = table.getModel().getRowCount();
+	                    for (int i = j-1; i >= 0; i--) {
+	                        defaultTableModel.removeRow(i);
+	                    }
+	                    setTotalPrice(0);
+	                    setDebtLb(Integer.toString(getTotalPrice() - getPaid()));
+	                    
+	                    defaultDebtTableModel.setValueAt(0, n, 4);
+	                    defaultDebtTableModel.setValueAt(debtLb.getText(), n, 6);
+					} catch (SQLException e1) {
+						e1.printStackTrace();
+					}
 				}
 			}
 		});

@@ -148,21 +148,24 @@ public class DetailStaffPane extends JPanel {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                try {
-                    Execute.delQuery(Query.getDelQuery("staff_hour", "cccd", cccd));
-                    int j = table.getModel().getRowCount();
-                    for (int i = j-1; i >= 0; i--) {
-                        defaultTableModel.removeRow(i);
+            	int selectOption = JOptionPane.showConfirmDialog(null, "Bạn có thực sự muốn xóa?", null, JOptionPane.YES_NO_OPTION);
+        		if (selectOption == JOptionPane.YES_OPTION) {
+        			try {
+                        Execute.delQuery(Query.getDelQuery("staff_hour", "cccd", cccd));
+                        int j = table.getModel().getRowCount();
+                        for (int i = j-1; i >= 0; i--) {
+                            defaultTableModel.removeRow(i);
+                        }
+                        total_hourLb.setText("0");
+                        total_salaryLb.setText("0");
+                        total_salary = 0;
+                        hour = 0;
+                        refresh(hour);
+                        Execute.closeConnect();
+                    } catch (SQLException sql) {
+                        sql.printStackTrace();
                     }
-                    total_hourLb.setText("0");
-                    total_salaryLb.setText("0");
-                    total_salary = 0;
-                    hour = 0;
-                    refresh(hour);
-                    Execute.closeConnect();
-                } catch (SQLException sql) {
-                    sql.printStackTrace();
-                }
+        		}
             }
         });
     }

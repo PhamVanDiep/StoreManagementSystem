@@ -321,11 +321,14 @@ public class DailyPaymentPane extends JPanel {
 		newPageBtn.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				int j = table.getModel().getRowCount();
-				for (int i = j-1; i >= 0; i--) {
-					defaultTableModel.removeRow(i);
+				int selectOption = JOptionPane.showConfirmDialog(null, "Bạn có thực sự muốn tạo trang mới?", null, JOptionPane.YES_NO_OPTION);
+				if (selectOption == JOptionPane.YES_OPTION) {
+					int j = table.getModel().getRowCount();
+					for (int i = j-1; i >= 0; i--) {
+						defaultTableModel.removeRow(i);
+					}
+					setTotalPrice(0);
 				}
-				setTotalPrice(0);
 			}
 		});
 	}
